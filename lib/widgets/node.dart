@@ -10,8 +10,10 @@ class Node extends StatelessWidget {
   final double x;
   final double y;
   final GlobalKey globalKey;
+  final double load;
   const Node(
       {@required this.globalKey,
+      this.load = 1.0,
       this.label,
       this.x,
       this.y,

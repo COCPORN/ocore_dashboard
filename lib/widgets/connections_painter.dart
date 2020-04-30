@@ -14,9 +14,9 @@ class ConnectionsPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
-      ..color = Colors.grey[600]
+      ..color = Colors.grey[400]
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 2.0;
+      ..strokeWidth = 8.0;
 
     if (source == null || source.globalKey == null) return;
     if (destinations == null || destinations.length == 0) return;
@@ -30,6 +30,7 @@ class ConnectionsPainter extends CustomPainter {
     final renderSource = Offset(-sourcePosition.dx, -sourcePosition.dy);
 
     destinations.forEach((destination) {
+      paint.strokeWidth = destination.load * 8;
       RenderBox destinationRenderBox =
           destination.globalKey.currentContext.findRenderObject();
 
@@ -45,9 +46,9 @@ class ConnectionsPainter extends CustomPainter {
       path.moveTo(renderSource.dx + sourceSize.width,
           renderSource.dy + sourceSize.height / 2);
       path.cubicTo(
-          renderSource.dx + sourceSize.width + 20,
+          renderSource.dx + sourceSize.width + 40,
           renderSource.dy + sourceSize.height / 2,
-          renderDest.dx - 20,
+          renderDest.dx - 40,
           renderDest.dy + destSize.height / 2,
           renderDest.dx + destSize.width / 2,
           renderDest.dy + destSize.height / 2);

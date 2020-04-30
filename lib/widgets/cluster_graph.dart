@@ -9,8 +9,9 @@ class ClusterGraph extends StatelessWidget {
   Widget build(BuildContext context) {
     final sourceNode = Node(label: 'Source', x: 20, y: 100, globalKey: GlobalKey());
     final nodes = <Node>[
-      Node(label: 'Test', x: 130, y: 100, globalKey: GlobalKey()),
-      Node(label: 'Test2', x: 130, y: 250, globalKey: GlobalKey())
+      Node(label: 'Test', x: 130, y: 100, globalKey: GlobalKey(), load: 0.3),
+      Node(label: 'Test2', x: 130, y: 160, globalKey: GlobalKey(), load: 0.7),
+      Node(label: 'This is a test', x: 150, y: 500, globalKey: GlobalKey(),)
     ];
 
     return Stack(
@@ -21,7 +22,8 @@ class ClusterGraph extends StatelessWidget {
                 source: sourceNode, destinations: nodes, ancestorKey: key)),
         sourceNode,
         nodes[0],
-        nodes[1]
+        nodes[1],
+        nodes[2]
       ],
     );
   }
