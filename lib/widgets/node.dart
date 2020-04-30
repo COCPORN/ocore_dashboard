@@ -32,7 +32,7 @@ class Node extends StatelessWidget {
         child: NeuContainer(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[NodeHeader(label: label)],
+          children: <Widget>[NodeHeader(label: label, nodeType: nodeType,)],
         )));
   }
 }

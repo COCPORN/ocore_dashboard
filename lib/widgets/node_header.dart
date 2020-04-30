@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:ocore_dashboard/widgets/node.dart';
 
 class NodeHeader extends StatelessWidget {
-  const NodeHeader({Key key, this.label}) : super(key: key);
+  const NodeHeader({Key key, @required this.label, @required this.nodeType})
+      : super(key: key);
   final String label;
+  final NodeType nodeType;
 
   // TODO: Icon research: donut_small, games, queue
   @override
   Widget build(BuildContext context) {
     return IntrinsicWidth(
-          child: Container(
+      child: Container(
         //width: MediaQuery.of(context).size.width,//
         //constraints: BoxConstraints.tightForFinite(width: 300, height: 30),
         //width: double.infinity,
@@ -22,7 +25,9 @@ class NodeHeader extends StatelessWidget {
             color: Colors.white,
             size: 14,
           ),
-          SizedBox(width: 3,),
+          SizedBox(
+            width: 3,
+          ),
           Text(
             label,
             style: TextStyle(fontSize: 13, color: Colors.white),
