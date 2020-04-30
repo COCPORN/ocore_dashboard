@@ -7,11 +7,17 @@ class ClusterGraph extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final sourceNode = Node(label: 'Source', x: 20, y: 100, globalKey: GlobalKey());
+    final sourceNode =
+        Node(label: 'B.DE.Account', x: 20, y: 100, globalKey: GlobalKey());
     final nodes = <Node>[
-      Node(label: 'Test', x: 130, y: 100, globalKey: GlobalKey(), load: 0.3),
-      Node(label: 'Test2', x: 130, y: 160, globalKey: GlobalKey(), load: 0.7),
-      Node(label: 'This is a test', x: 150, y: 500, globalKey: GlobalKey(),)
+      Node(label: 'B.DE.Profile', x: 280, y: 100, globalKey: GlobalKey(), load: 0.3),
+      Node(label: 'Test2', x: 280, y: 160, globalKey: GlobalKey(), load: 0.7),
+      Node(
+        label: 'This is a test',
+        x: 280,
+        y: 500,
+        globalKey: GlobalKey(),
+      )
     ];
 
     return Stack(

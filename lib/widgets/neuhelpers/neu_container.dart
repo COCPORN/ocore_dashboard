@@ -8,6 +8,7 @@ class NeuContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 150,
       padding: padding,
         child: child,
         decoration: BoxDecoration(

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:ocore_dashboard/widgets/node.dart';
 
@@ -29,8 +31,11 @@ class ConnectionsPainter extends CustomPainter {
     Size sourceSize = sourceRenderBox.size;
     final renderSource = Offset(-sourcePosition.dx, -sourcePosition.dy);
 
+    int i = 0;
+
     destinations.forEach((destination) {
-      paint.strokeWidth = destination.load * 8;
+      paint.strokeWidth = lerpDouble(6, 8, destination.load);
+      //paint.color = Color.lerp(Colors.grey[400], Color.fromARGB(255, 228, 180, 180), destination.load);
       RenderBox destinationRenderBox =
           destination.globalKey.currentContext.findRenderObject();
 
@@ -46,14 +51,15 @@ class ConnectionsPainter extends CustomPainter {
       path.moveTo(renderSource.dx + sourceSize.width,
           renderSource.dy + sourceSize.height / 2);
       path.cubicTo(
-          renderSource.dx + sourceSize.width + 40,
+          renderSource.dx + sourceSize.width + 75,
           renderSource.dy + sourceSize.height / 2,
-          renderDest.dx - 40,
+          renderDest.dx - 75,
           renderDest.dy + destSize.height / 2,
-          renderDest.dx + destSize.width / 2,
+          renderDest.dx,
           renderDest.dy + destSize.height / 2);
 
       canvas.drawPath(path, paint);
+      i++;
     });
   }
 
