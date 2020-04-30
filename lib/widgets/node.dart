@@ -1,22 +1,30 @@
 import 'package:flutter/material.dart';
 
+import 'neuhelpers/neu_container.dart';
+
+enum NodeType { DataEntity, Service, Filter, Api, Timer, Unknown }
+
 class Node extends StatelessWidget {
-  const Node({Key key}) : super(key: key);
+  final NodeType nodeType;
+  final String label;
+  final double x;
+  final double y;
+  final GlobalKey globalKey;
+  const Node(
+      {@required this.globalKey,
+      this.label,
+      this.x,
+      this.y,
+      this.nodeType = NodeType.Unknown})
+      : super(key: globalKey);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        constraints: BoxConstraints(),
-        child: Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                boxShadow: <BoxShadow>[
-                  BoxShadow(color: Colors.white, offset: Offset(-1, -1,), blurRadius: 1, spreadRadius: 1),
-                  BoxShadow(color: Colors.black26, offset: Offset(1, 1,), blurRadius: 1, spreadRadius: 1)
-                ],
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(4)),
-                border: Border()),
-            child: Text('Node')));
+    return Positioned(
+      top: y,
+      left: x,
+      child: NeuContainer(
+          padding: EdgeInsets.all(10),
+          child: Text(label)));
   }
 }

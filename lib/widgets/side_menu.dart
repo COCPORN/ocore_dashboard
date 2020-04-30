@@ -8,26 +8,26 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Expanded(
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Container(
-              width: 180,
-              child: ListView(
-                children: <Widget>[
-                  MenuItem(label: "Overview", iconData: Icons.home,),
-                  MenuItem(label: "Cluster", iconData: Icons.device_hub),
-                  MenuItem(label: "Logs", iconData: Icons.list),                  
-                ],
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Container(
+          width: 180,
+          child: ListView(
+            children: <Widget>[
+              MenuItem(
+                label: "Overview",
+                iconData: Icons.home,
               ),
-            ),
-            child
-          ],
+              MenuItem(label: "Cluster", iconData: Icons.device_hub),
+              MenuItem(label: "Logs", iconData: Icons.list),
+              MenuItem(label: "Dev", iconData: Icons.developer_board),
+            ],
+          ),
         ),
-      )
-    ]);
+        child
+      ],
+    );
   }
 }
