@@ -7,6 +7,21 @@ class NodeHeader extends StatelessWidget {
   final String label;
   final NodeType nodeType;
 
+  // 783988
+  _colorForNodeType(nodeType) {
+    switch (nodeType) {
+      case NodeType.Grain:
+      case NodeType.StatelessGrain:
+        return Color.fromARGB(0xff, 0x78, 0x39, 0x88);
+      case NodeType.Service:
+        return Colors.red;
+      case NodeType.DataEntity:
+        return Colors.green;
+      default:
+        return Colors.grey[600];
+    }
+  }
+
   // TODO: Icon research: donut_small, games, queue
   @override
   Widget build(BuildContext context) {
@@ -17,8 +32,9 @@ class NodeHeader extends StatelessWidget {
         //width: double.infinity,
         padding: EdgeInsets.all(4),
         decoration: BoxDecoration(
-            color: Colors.lightBlue,
-            borderRadius: BorderRadius.all(Radius.circular(4))),
+            color: _colorForNodeType(nodeType),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(4), topRight: Radius.circular(4))),
         child: Row(children: <Widget>[
           Icon(
             Icons.games,
@@ -28,10 +44,14 @@ class NodeHeader extends StatelessWidget {
           SizedBox(
             width: 3,
           ),
-          Text(
-            label,
-            style: TextStyle(fontSize: 13, color: Colors.white),
-          )
+          Expanded(
+            child: Text(
+              label,
+              style: TextStyle(fontSize: 13, color: Colors.white),
+            ),
+          ),
+          Icon(Icons.volume_mute, color: Colors.white, size: 14),
+          Icon(Icons.add_alert, color: Colors.white, size: 14)
         ]),
       ),
     );

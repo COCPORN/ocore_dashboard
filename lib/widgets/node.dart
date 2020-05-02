@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ocore_dashboard/widgets/node_header.dart';
+import 'package:ocore_dashboard/widgets/node_method.dart';
 
 import 'neuhelpers/neu_container.dart';
 
-enum NodeType { DataEntity, Service, Filter, Api, Timer, Unknown }
+enum NodeType { DataEntity, Service, Grain, StatelessGrain }
 
 class Node extends StatelessWidget {
   final NodeType nodeType;
@@ -21,7 +22,7 @@ class Node extends StatelessWidget {
       this.label,
       this.x,
       this.y,
-      this.nodeType = NodeType.Unknown})
+      this.nodeType = NodeType.Grain})
       : super(key: globalKey);
 
   @override
@@ -32,7 +33,10 @@ class Node extends StatelessWidget {
         child: NeuContainer(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[NodeHeader(label: label, nodeType: nodeType,)],
+          children: <Widget>[
+            NodeHeader(label: label, nodeType: nodeType,),
+            NodeMethod()
+            ],
         )));
   }
 }
