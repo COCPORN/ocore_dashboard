@@ -31,8 +31,6 @@ class ConnectionsPainter extends CustomPainter {
     Size sourceSize = sourceRenderBox.size;
     final renderSource = Offset(-sourcePosition.dx, -sourcePosition.dy);
 
-    int i = 0;
-
     destinations.forEach((destination) {
       paint.strokeWidth = lerpDouble(6, 8, destination.load);
       //paint.color = Color.lerp(Colors.grey[400], Color.fromARGB(255, 228, 180, 180), destination.load);
@@ -59,7 +57,7 @@ class ConnectionsPainter extends CustomPainter {
           renderDest.dy + destSize.height / 2);
 
       canvas.drawPath(path, paint);
-      i++;
+  
     });
   }
 
