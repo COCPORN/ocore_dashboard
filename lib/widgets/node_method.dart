@@ -6,7 +6,10 @@ class NodeMethod extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Wohey'),
+      child: Row(children: <Widget>[
+        Icon(Icons.add_box),
+        Expanded(child: Text('Read'))
+      ]),
     );
   }
 }

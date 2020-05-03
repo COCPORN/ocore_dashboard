@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^0.1.3
   # material_icons: 
   signalr_client: 
+  clay_containers: 
 
 dev_dependencies:
   flutter_test:

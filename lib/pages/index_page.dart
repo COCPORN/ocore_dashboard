@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ocore_dashboard/widgets/cluster_graph.dart';
+//import 'package:ocore_dashboard/widgets/cluster_graph.dart';
+import 'package:ocore_dashboard/widgets/dashboard.dart';
 import 'package:ocore_dashboard/widgets/inspector.dart';
 import 'package:ocore_dashboard/widgets/side_menu.dart';
 
@@ -17,14 +18,21 @@ class IndexPage extends StatelessWidget {
               backgroundColor: background,
               title: Text('OCore', style: TextStyle(color: Colors.white)),
               actions: <Widget>[
-                Container(padding: EdgeInsets.only(right: 16), child: Icon(Icons.wifi, color: Colors.white,))
+                Container(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Icon(
+                      Icons.wifi,
+                      color: Colors.white,
+                    ))
               ],
               //centerTitle: true,
             ),
             body: SideMenu(
-                child: Expanded(                  
+                child: Expanded(
                     child: Container(
                         color: Colors.grey[300],
-                        child: Inspector(child: ClusterGraph(key: GlobalKey())))))));
+                        child: Inspector(child: Dashboard()
+                            //ClusterGraph(key: GlobalKey())
+                            ))))));
   }
 }
